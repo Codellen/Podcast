@@ -108,7 +108,7 @@ useEffect(()=>{
         </div>
         
         <div className='banner-wrapper'>
-        <img src={podcastObject.DisplayImage} ></img>
+        <img src={podcastObject.BannerImage} ></img>
         </div>
         <p className='podcast-description'>{podcastObject.description}</p>
          <h2 className='podcast-title-heading'>Episodes</h2> 

@@ -7,6 +7,7 @@ import { collection, query } from "firebase/firestore"
 import { setPodcast } from '../Slice/Podcastslice'
 import PodCard from '../Components/Podcast-Card/PodCard'
 import "../App.css";
+import { auth } from '../firebase';
 import Input from '../Components/Inputs'
 
 function Podcast() {
@@ -16,31 +17,37 @@ const getpodcast = useSelector((state)=>state.podcast.podcast)
 const [search,setSearch] = useState("")
 const[filtered,setFiltered] = useState(true)
 
-useEffect(()=>{
 
+useEffect(()=>{
+console.log("checking for dispatch dependencies")
   const listenData = onSnapshot(
     query(collection(db, "podcasts")),
     (querySnapshot)=>{
       const podcastData = [];
       querySnapshot.forEach((doc)=>{
         podcastData.push({id:doc.id,...doc.data()})
+       
       });
+      console.log(podcastData[0].createdBy)
+      
+     
        dispatch(setPodcast(podcastData))
-
+       
     },
     (error)=>{
       console.error("Error fetching podcasts:",error)
     }
   )
-
+  console.log("checking for dispatch dependencies222000")
   return()=>{
     listenData()
   }
-},[dispatch])
+},[])
 
 
-
-var filterArray = getpodcast.filter((item)=> item.title.toLowerCase().includes(search.toLowerCase()))
+var filterData = getpodcast.filter((item)=>item.createdBy.includes(auth.currentUser.uid))
+//console.log(filterData)
+var filterArray = filterData.filter((item)=> item.title.toLowerCase().includes(search.toLowerCase()))
 //console.log(filterArray)
  
   return (

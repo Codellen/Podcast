@@ -10,6 +10,7 @@ const podcastSlice = createSlice({
     reducers: {
         setPodcast(state,action){
           state.podcast = action.payload
+          console.log(state.podcast)
         }
       },
     })

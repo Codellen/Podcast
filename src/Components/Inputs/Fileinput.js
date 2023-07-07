@@ -7,7 +7,7 @@ function Fileinput({accept,id,filehandel,name}) {
     
 const onchange = (event)=>{
 
-  //console.log(event.target.files)  
+  console.log(event.target.files)  
   //console.log(event.target.files.length) 
   filehandel(event.target.files[0]) 
   setUploadFile(true)

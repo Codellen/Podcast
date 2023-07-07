@@ -18,6 +18,8 @@ function CreatePodcast() {
     let[loading,setLoading] = useState(false)
     const storage = getStorage()
     const navigate =  useNavigate()
+
+
     const handeSubmit = async()=>{
 
       // toast.warn("Handling Form")
@@ -107,7 +109,7 @@ function CreatePodcast() {
         <Input state={podcastdescription} setState={setPodcastTDescription} placeholder={"Podcast Description"} type="text" required={true}></Input>
         {/* <Input state={displayimg} setState={setDisplayImage} placeholder={"Display Image"} type="file" required={true}></Input> */}
         <Fileinput accept="image/*" id="banner-image-input" filehandel={bannerimage} name={"Banner Image"} ></Fileinput>
-        <Fileinput accept="image/*" id="display-image-input" filehandel={displayimage} name={"Display Image"} ></Fileinput>
+        <Fileinput accept="image/*" id="display-image-input" filehandel={displayimage} name={"Display Image"}></Fileinput>
         <Button text={loading?"Loading...":"Create Now"} onClick={handeSubmit} disable={loading}></Button>
         </div>
     </div>
