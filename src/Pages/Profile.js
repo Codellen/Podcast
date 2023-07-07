@@ -16,6 +16,8 @@ function Profile() {
             // An error happened.
           });
 
+          
+
     }
     //console.log(selector)
     if(!userStore){

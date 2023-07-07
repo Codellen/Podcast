@@ -1,6 +1,7 @@
 import React, { useRef,useState,useEffect } from 'react'
 import "./styles.css"
 import {FaPlay,FaPause,FaVolumeUp,FaVolumeMute} from 'react-icons/fa'
+
 function AudioPlayer({audiosrc,podcasticon}) {
     const audioRef = useRef()
     const[isPlaying,setIsPlaying] = useState(true) 
